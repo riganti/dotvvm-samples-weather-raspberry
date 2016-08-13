@@ -1,0 +1,7 @@
+﻿@viewModel DotvvmWeather.ViewModels.DefaultViewModel, DotvvmWeather
+@baseType DotvvmWeather.Controls.IntervalSwitch, DotvvmWeather
+
+&nbsp; 
+
+<dot:LinkButton Text="{value: _control.Text}" Click="{controlCommand: SetInterval()}" Visible="{value: Interval != _control.Interval}" />
+<strong Visible="{value: Interval == _control.Interval}" InnerText="{value: _control.Text}"></strong>

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Raspberry.IO.InterIntegratedCircuit</name>
+    </assembly>
+    <members>
+        <member name="T:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection">
+            <summary>
+            Represents a connection to the I2C device.
+            </summary>
+        </member>
+        <member name="P:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.DeviceAddress">
+            <summary>
+            Gets the device address.
+            </summary>
+            <value>
+            The device address.
+            </value>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.Execute(Raspberry.IO.InterIntegratedCircuit.I2cTransaction)">
+            <summary>
+            Executes the specified transaction.
+            </summary>
+            <param name="transaction">The transaction.</param>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.Write(System.Byte[])">
+            <summary>
+            Writes the specified buffer.
+            </summary>
+            <param name="buffer">The buffer.</param>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.WriteByte(System.Byte)">
+            <summary>
+            Writes the specified byte.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.Read(System.Int32)">
+            <summary>
+            Reads the specified number of bytes.
+            </summary>
+            <param name="byteCount">The byte count.</param>
+            <returns>The buffer.</returns>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDeviceConnection.ReadByte">
+            <summary>
+            Reads a byte.
+            </summary>
+            <returns>The byte.</returns>
+        </member>
+        <member name="T:Raspberry.IO.InterIntegratedCircuit.I2cDriver">
+            <summary>
+            Represents a driver for I2C devices.
+            </summary>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDriver.#ctor(Raspberry.IO.GeneralPurpose.ProcessorPin,Raspberry.IO.GeneralPurpose.ProcessorPin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Raspberry.IO.InterIntegratedCircuit.I2cDriver"/> class.
+            </summary>
+            <param name="sdaPin">The SDA pin.</param>
+            <param name="sclPin">The SCL pin.</param>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDriver.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:Raspberry.IO.InterIntegratedCircuit.I2cDriver.ClockDivider">
+            <summary>
+            Gets or sets the clock divider.
+            </summary>
+            <value>
+            The clock divider.
+            </value>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDriver.Connect(System.Int32)">
+            <summary>
+            Connects the specified device address.
+            </summary>
+            <param name="deviceAddress">The device address.</param>
+            <returns>The device connection</returns>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDriver.Execute(System.Int32,Raspberry.IO.InterIntegratedCircuit.I2cTransaction)">
+            <summary>
+            Executes the specified transaction.
+            </summary>
+            <param name="deviceAddress">The address of the device.</param>
+            <param name="transaction">The transaction.</param>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cDriver.SetPinMode(System.UInt32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="pin"></param>
+            <param name="mode"></param>
+            <returns>True when value was changed, false otherwise.</returns>
+        </member>
+        <member name="T:Raspberry.IO.InterIntegratedCircuit.I2cReadAction">
+            <summary>
+            Defines an I2C read action.
+            </summary>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cReadAction.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Raspberry.IO.InterIntegratedCircuit.I2cReadAction"/> class.
+            </summary>
+            <param name="buffer">The buffer which should be used to store the received data.</param>
+        </member>
+        <member name="T:Raspberry.IO.InterIntegratedCircuit.I2cTransaction">
+            <summary>
+            Defines an I2C data transaction.
+            </summary>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cTransaction.#ctor(Raspberry.IO.InterIntegratedCircuit.I2cAction[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Raspberry.IO.InterIntegratedCircuit.I2cTransaction"/> class.
+            </summary>
+            <param name="actions">The actions which should be performed within the transaction.</param>
+        </member>
+        <member name="P:Raspberry.IO.InterIntegratedCircuit.I2cTransaction.Actions">
+            <summary>
+            Gets the actions.
+            </summary>
+        </member>
+        <member name="T:Raspberry.IO.InterIntegratedCircuit.I2cWriteAction">
+            <summary>
+            Defines an I2C write action.
+            </summary>
+        </member>
+        <member name="M:Raspberry.IO.InterIntegratedCircuit.I2cWriteAction.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Raspberry.IO.InterIntegratedCircuit.I2cWriteAction"/> class.
+            </summary>
+            <param name="buffer">The buffer with data which should be written.</param>
+        </member>
+    </members>
+</doc>

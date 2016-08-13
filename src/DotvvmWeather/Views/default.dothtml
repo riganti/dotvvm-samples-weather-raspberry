@@ -1,0 +1,90 @@
+﻿@viewModel DotvvmWeather.ViewModels.DefaultViewModel, DotvvmWeather
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/morris.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/raphael-min.js"></script>
+    <script src="~/Scripts/morris.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>DotVVM Weather Sample</h1>
+
+        <div class="row">
+
+            <div class="col-lg-6" style="padding-bottom: 20px">
+                <h2>Current Conditions</h2>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Temperature</td>
+                        <td>
+                            <dot:Literal Text="{value: Current.Temperature}" FormatString="n1" /> °C
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Air Pressure</td>
+                        <td>
+                            <dot:Literal Text="{value: Current.Pressure}" FormatString="n1" /> hPa
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Humidity</td>
+                        <td>
+                            <dot:Literal Text="{value: Current.Humidity}" FormatString="n1" /> %
+                        </td>
+                    </tr>
+                </table>
+
+                <p>
+                    Interval: 
+                    <cc:IntervalSwitch Interval="10" Text="10 secs" />
+                    <cc:IntervalSwitch Interval="60" Text="1 min" />
+                    <cc:IntervalSwitch Interval="600" Text="10 min" />
+                    <cc:IntervalSwitch Interval="3600" Text="1 hour" />
+                </p>
+            </div>
+
+            <div class="col-lg-6" style="padding-bottom: 20px">
+
+                <h2>Temperature</h2>
+
+                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Temperature'], labels: ['Temperature'], yMin: -20, yMax: 40, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' °C'}"></div>
+                
+            </div>
+
+            <div class="col-lg-6" style="padding-bottom: 20px">
+
+                <h2>Air Pressure</h2>
+
+                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Pressure'], labels: ['Air Pressure'], yMin: 900, yMax: 1100, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' hPa'}"></div>
+
+            </div>
+
+            <div class="col-lg-6" style="padding-bottom: 20px">
+
+                <h2>Humidity</h2>
+
+                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Humidity'], labels: ['Humidity'], yMin: 0, yMax: 100, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' %'}"></div>
+
+            </div>
+            
+        </div>
+
+        <dot:Button Text="Refresh Data" Click="{command: Refresh()}" ID="refresh-button" class="btn btn-primary" />
+
+    </div>
+
+    <dot:RequiredResource Name="dotvvm-morris" />
+</body>
+</html>
