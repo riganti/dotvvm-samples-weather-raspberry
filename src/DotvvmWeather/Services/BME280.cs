@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Raspberry.IO.GeneralPurpose;
 using Raspberry.IO.InterIntegratedCircuit;
@@ -145,7 +146,7 @@ namespace DotvvmWeather.Services
         {
             byte[] writeBuffer = new byte[] { (byte)eRegisters.BME280_REGISTER_CONTROLHUMID, 0x03 };
             bme280.Write(writeBuffer);
-            Task.Delay(1);
+            Thread.Sleep(1);
             return;
         }
 
@@ -154,7 +155,7 @@ namespace DotvvmWeather.Services
         {
             byte[] writeBuffer = new byte[] { (byte)eRegisters.BME280_REGISTER_CONTROL, 0x3F };
             bme280.Write(writeBuffer);
-            Task.Delay(1);
+            Thread.Sleep(1);
             return;
         }
 
@@ -225,28 +226,8 @@ namespace DotvvmWeather.Services
             CalibrationData.dig_H4 = (Int16)((ReadByte((byte)eRegisters.BME280_REGISTER_DIG_H4_MSB) << 4) | (ReadByte((byte)eRegisters.BME280_REGISTER_DIG_H4_LSB) & 0xF));
             CalibrationData.dig_H5 = (Int16)((ReadByte((byte)eRegisters.BME280_REGISTER_DIG_H5_MSB) << 4) | (ReadByte((byte)eRegisters.BME280_REGISTER_DIG_H5_LSB) >> 4));
             CalibrationData.dig_H6 = ReadByte((byte)eRegisters.BME280_REGISTER_DIG_H6_REG);
-
-
-            //p_bme280->cal_param.dig_H1 = a_data_u8[BME280_HUMIDITY_CALIB_DIG_H1];
-
-            //com_rslt += p_bme280->BME280_BUS_READ_FUNC(
-            //p_bme280->dev_addr,
-            //BME280_HUMIDITY_CALIB_DIG_H2_LSB_REG, a_data_u8,
-            //BME280_HUMIDITY_CALIB_DATA_LENGTH);
-
-            //p_bme280->cal_param.dig_H2 = (s16)((((s16)((s8)a_data_u8[BME280_HUMIDITY_CALIB_DIG_H2_MSB])) << BME280_SHIFT_BIT_POSITION_BY_08_BITS) | a_data_u8[BME280_HUMIDITY_CALIB_DIG_H2_LSB]);
-
-            //p_bme280->cal_param.dig_H3 = a_data_u8[BME280_HUMIDITY_CALIB_DIG_H3];
-
-            //p_bme280->cal_param.dig_H4 = (s16)((( (s16)((s8)a_data_u8[ BME280_HUMIDITY_CALIB_DIG_H4_MSB])) << BME280_SHIFT_BIT_POSITION_BY_04_BITS) |
-            //(((u8)BME280_MASK_DIG_H4) & a_data_u8[BME280_HUMIDITY_CALIB_DIG_H4_LSB]));
-
-            //p_bme280->cal_param.dig_H5 = (s16)((( (s16)((s8)a_data_u8[ BME280_HUMIDITY_CALIB_DIG_H5_MSB])) << BME280_SHIFT_BIT_POSITION_BY_04_BITS) |
-            //(a_data_u8[BME280_HUMIDITY_CALIB_DIG_H4_LSB] >> BME280_SHIFT_BIT_POSITION_BY_04_BITS));
-
-            //p_bme280->cal_param.dig_H6 = (s8)a_data_u8[BME280_HUMIDITY_CALIB_DIG_H6];
-
-            Task.Delay(1);
+            
+            Thread.Sleep(1);
             return CalibrationData;
         }
 

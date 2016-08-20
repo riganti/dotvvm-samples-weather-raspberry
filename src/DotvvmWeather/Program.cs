@@ -32,7 +32,7 @@ namespace DotvvmWeather
         public static void Main(string[] args)
         {
             // run in service mode
-            if (args.Length > 0 && args[1] == "--service")
+            if (args.Length > 0 && args[0] == "--service")
             {
                 ServiceBase.Run(new ServiceBase[] { new HostingService() });
                 return;
