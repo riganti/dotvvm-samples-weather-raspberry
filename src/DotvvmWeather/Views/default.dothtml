@@ -59,7 +59,7 @@
 
                 <h2>Temperature</h2>
 
-                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Temperature'], labels: ['Temperature'], yMin: -20, yMax: 40, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' °C'}"></div>
+                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Temperature'], labels: ['Temperature'], yMin: -20, yMax: 50, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' °C'}"></div>
                 
             </div>
 
@@ -67,7 +67,7 @@
 
                 <h2>Air Pressure</h2>
 
-                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Pressure'], labels: ['Air Pressure'], yMin: 900, yMax: 1100, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' hPa'}"></div>
+                <div data-bind="dotvvm-Morris: Data, dotvvm-Morris-Series: { xMemberName: 'DateFormatted', yMemberNames: ['Pressure'], labels: ['Air Pressure'], yMin: 950, yMax: 1050, dateFormat: 'g', yLabelFormat: 'n1', postUnit: ' hPa'}"></div>
 
             </div>
 

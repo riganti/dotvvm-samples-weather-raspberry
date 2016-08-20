@@ -16,7 +16,7 @@ namespace DotvvmWeather.ViewModels
 
         public List<WeatherData> Data { get; private set; }
 
-        public int Interval { get; set; } = 10;
+        public int Interval { get; set; } = 3600;
 
 
         public override Task PreRender()
